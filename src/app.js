@@ -3,7 +3,7 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 
 // Importing routes
-import petRoutes from './routes/pets.js.js'
+import petRoutes from './routes/pets.js'
 import userRoutes from './routes/users.js'
 import roleRoutes from './routes/roles.js'
 
