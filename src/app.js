@@ -1,9 +1,11 @@
-import express, {json}  from 'express';
+import express, { json } from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 
 // Importing routes
-import petRoutes from  './routes/pets.js'
+import petRoutes from './routes/pets.js'
+import userRoutes from './routes/users.js'
+import roleRoutes from './routes/roles.js'
 
 
 // Initialization
@@ -16,7 +18,9 @@ app.use(bodyParser.urlencoded({ extended: false }));    // para poder obtener lo
 app.use(bodyParser.json());                             // para castearlos como json
 
 // Routes
-app.use('/api/pets',petRoutes);                         // La ruta pets
+app.use('/api/pets', petRoutes);                         // La ruta pets
+app.use('/api/users', userRoutes)                         // La ruta users
+app.use('/api/roles', roleRoutes)                         // La ruta roles
 
 
 export default app;

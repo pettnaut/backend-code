@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  # primer contenedor
+  api:
+    # nombre del contenedor
+    container_name: pettnaut-backend
+    # en caso q haya un error volver a levantarlo
+    restart: always
+    # constuir desde el directorio actual
+    build: .
+    # puertos en donde se levantara
+    ports:
+      - "4000:4000"
+    links:
+      - db
+    volumes:
+      - .:/usr/src/app
+
+  # segundo contenedor
+  db:
+    # nombre del contenedor
+    container_name: postgresdatabase
+    # Imagen del contenedor
+    image: postgres
+    # variables de entorno de la base de datos
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    # para que ejecute el script de la base
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+        # puertos en donde se levantara
+    ports:
+      - "5433:5432"
+# cambiar la direccion de la base de datos
