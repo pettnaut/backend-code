@@ -44,4 +44,4 @@ INSERT INTO ROLES (NAME, description)
 VALUES
 ('Dev', 'Hace referencia al desarrollador, para mantenimiento'),
 ('Admin', 'Hace referencia al administrador con funciones de moderador'),
-('User', 'Hace referencia a un usuario comun')
+('User', 'Hace referencia a un usuario comun');
