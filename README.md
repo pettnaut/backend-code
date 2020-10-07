@@ -1,15 +1,61 @@
-# Pets_Backend
+# Pettnaut backend
+## Description
+Pettnaut is open source and non profit project that aims to unify efforts to adopt pets in the city, it also has a pet profile where you can add characteristics of the pets that help to find your pet in case it gets lost.
+In this repository we are working on the **backend side**.
 
-## Objetivo
-Este proyecto se realizo con el objetivo de ayudar a la comunidad, mediante el reporte y actualizacion de un listado de mascotas que se encuentran en adopción
+## Api documentation
+FIn the official documentation on: https://documenter.getpostman.com/view/12619023/TVCh1TPv#intro
 
-## Probar el Codigo
-1. Descargar el repositorio 
-  ``git clone https://github.com/chjuca/Pets_Backend/``
-2. Crear carpeta node_modules
-  ``npm install``
-3. Ejecutar el script que se encuentra en la ruta ``sql/db.sql`` dentro de pgAdmin
+## Technical details
+We pretend to build a platform that allows you to create a pet’s profiles. For those purposes, we are going to have a web page and the backend. More details about the technologies used on the components are in the next graphic:
+**![](https://lh3.googleusercontent.com/kLrJy5xZyN_N4m-neCZnu1CcTadQfEztCgj32fUjPgH5tg4kuI5E2XAlK4zKKCyD3kqt9ITqTRIlQvyFkVFTyYokNntKIeaQLcOoop4B-YM7bN3JdeYfootwVa5t)**
+You can find our data base model at::
+[https://drive.google.com/file/d/1TOyK8zlOPKYtEKFBQMjgC2gktrPB3oCx/view?usp=sharing](https://drive.google.com/file/d/1TOyK8zlOPKYtEKFBQMjgC2gktrPB3oCx/view?usp=sharing)
 
-3. Abrir el archivo ``database.js`` que se encuentra en la ruta ``src/database/database.js``, ahi cambiar ls variables segun la base de datos a usar.
-4. En una terminar, dentro la raiz del proyecto ejecutar ``npm run dev``, si todo esta correcto el API REST se levantara en el puerto 4000 
-NOTA: El puerto ser cambiado dentro del archivo ``index.js`` dentro de la carpeta ``src/``
+## Getting started
+We are using heroku for development. So is easiest to test the code in your local enviroment.
+#### Install the Heroku CLI
+
+Download and install the  [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line).
+
+If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.
+```
+$ heroku login
+```
+Clone the project 
+```
+$ git clone https://github.com/pettnaut/backend-code.git
+```
+Go to your project
+```
+$ cd backend-code
+```
+Create your own heroku project
+```
+$ heroku create
+```
+A random name for your project will be assigned. 
+Now deploy your code:
+```
+$ git push heroku master
+```
+The application is now deployed. Ensure that at least one instance of the app is running:
+```
+$ heroku ps:scale web=1
+```
+Add a database 
+```
+$ heroku addons:create heroku-postgresql:hobby-dev
+```
+Now you have to populate this database with test entries. We have prepare a script that you can use. For do that, open the postgresql on heroku:
+```
+$ heroku pg:psql
+```
+Into the new terminal, copy an paste the content inside the `init.sql` at root directory.
+
+That's it. You are done! You can access to your test api running this hands on command from heroku:
+```
+$ heroku open
+```
+It will open your browser and show you the url of your api!
+
