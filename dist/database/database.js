@@ -9,22 +9,6 @@ exports.sequelize = void 0;
 
 var _sequelize = _interopRequireDefault(require("sequelize"));
 
-var database = process.env.DATABASE || 'postgres'; // nombre de tu base de datos
+var sequelize = new _sequelize["default"](process.env.DATABASE_URL || 'postgres://postgres:postges@127.0.0.1:5432/postges'); // Example for postgres
 
-var username = process.env.USER || 'postgres'; // nombre de tu usuario
-
-var password = process.env.PASSWORD || 'postgres'; // contraseña de el usuario (en este caso el usuario es 'postgres')
-
-var sequelize = new _sequelize["default"](database, username, password, {
-  host: 'localhost',
-  dialect: 'postgres',
-  // base de datos que usaremos
-  pool: {
-    max: 5,
-    min: 0,
-    require: 30000,
-    idle: 10000
-  },
-  logging: false
-});
 exports.sequelize = sequelize;
